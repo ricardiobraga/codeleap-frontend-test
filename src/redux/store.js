@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import buttonReducer from '../redux/buttonSlice';
-import editorReducer from '../actions/editorSlice';
+import editorReducer from '../actions/createPostSlice';
 
 export default configureStore({
     reducer: {

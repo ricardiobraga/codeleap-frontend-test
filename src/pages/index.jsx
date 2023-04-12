@@ -7,7 +7,10 @@ import { Provider } from 'react-redux'
 import store from '../redux/store'
 import MainScreen from './mainScreen'
 
-export default function Home() {
+
+
+
+export default function Home({ posts }) {
   return (
     <>
       <Head>
@@ -18,10 +21,23 @@ export default function Home() {
       </Head>
       <Provider store={store}>
         <main className={styles.main}>
-          {/* <Signup /> */}
-          <MainScreen />
+          <MainScreen posts={posts} />
         </main >
       </Provider>
     </>
   )
+}
+
+export async function getStaticProps(){    
+ 
+  const data = await fetch('https://dev.codeleap.co.uk/careers/')
+  const posts = await data.json()
+
+  console.log(posts);
+  
+  return { 
+      props: { posts },
+  } 
+  
+
 }

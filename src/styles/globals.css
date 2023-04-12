@@ -23,6 +23,10 @@
   --color-softred: #FF5151;
 }
 
+body::-webkit-scrollbar{
+  display: none;
+}
+
 main {
   width: 100vw;
   height: 100vh;

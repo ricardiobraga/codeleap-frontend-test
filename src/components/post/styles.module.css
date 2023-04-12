@@ -3,19 +3,21 @@
     height: 31.6rem;
     display: flex;    
     flex-direction: column;
-    overflow: hidden;
+    
     border: .1rem solid var(--color-grey);
     border-radius: 1.6rem;
     
 }
 
-.title {
+.title {    
+    
     padding: 2.4rem;
     height: 7rem;
+    border-radius: 1.6rem 1.6rem 0 0;
     background-color: var(--color-softblue);
     
 }
-.title h1 {
+.titleText {
     font-size: 2.2rem;
     line-height: 2.6rem;
     font-weight: 700;
@@ -24,9 +26,11 @@
 
 .mainContainer {
     display: flex;
+    height: 100%;
     flex-direction: column;
     gap: 2.4rem;
     padding: 2.4rem;
+    overflow: hidden;
 }
 
 .postInfo {
@@ -47,9 +51,13 @@
     color: var(--color-darkgrey);
 }
 
-.postText p {
+.postText {
     font-size: 1.8rem;
     font-weight: 400;
     line-height: 2.1rem;
     color: var(--color-black);
+}
+
+.hide {
+    display: none;
 }

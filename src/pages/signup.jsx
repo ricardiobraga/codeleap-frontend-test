@@ -25,8 +25,7 @@ export default function Signup() {
             <section className={styles.signupSection}>
                 <h1 className={styles.title}>Welcome to CodeLeap network!</h1>
                 <InputComp title="Please enter your username" placeholder="John doe" handleInput={handleInput} />
-                <ButtonComp text="ENTER" active={button} /> 
-                
+                <ButtonComp text="ENTER" active={button} />              
                     
                 
             </section>

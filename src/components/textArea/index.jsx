@@ -23,7 +23,7 @@ export default function TextAreaComp(props) {
             <h1 className={styles.title}>{props.title}</h1>
             <textarea className={styles.textarea} type='text' rows="3" placeholder={props.placeholder} value={inputValue} onChange={ (e) => {
                 setInputValue(e.target.value);
-                
+                props.setPostContent(e.target.value)
                 props.handleTextarea(e.target.value);
                 }} />   
                     
