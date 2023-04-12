@@ -1,11 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import buttonReducer from '../redux/buttonSlice';
-import editorReducer from '../actions/createPostSlice';
+import userReducer from '../actions/userSlice';
+import inputCheckReducer from '../actions/createPostInputSlice';
+
 
 export default configureStore({
     reducer: {
-        inputCheck: buttonReducer,
-        textareaCheck: editorReducer
+        user: userReducer,
+        inputCheck: inputCheckReducer
     }
 })
 

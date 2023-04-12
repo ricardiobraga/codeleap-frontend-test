@@ -2,10 +2,10 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/src/styles/Home.module.css'
-import Signup from './signup'
+import Signup from '../components/signup'
 import { Provider } from 'react-redux'
 import store from '../redux/store'
-import MainScreen from './mainScreen'
+import MainScreen from '../components/mainScreen'
 
 
 
@@ -21,23 +21,12 @@ export default function Home({ posts }) {
       </Head>
       <Provider store={store}>
         <main className={styles.main}>
-          <MainScreen posts={posts} />
+          <Signup />
+          {/* <MainScreen posts={posts} /> */}
         </main >
       </Provider>
     </>
   )
 }
 
-export async function getStaticProps(){    
- 
-  const data = await fetch('https://dev.codeleap.co.uk/careers/')
-  const posts = await data.json()
 
-  console.log(posts);
-  
-  return { 
-      props: { posts },
-  } 
-  
-
-}

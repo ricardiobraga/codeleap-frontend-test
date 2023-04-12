@@ -5,40 +5,42 @@ import InputComp from '../input'
 import TextAreaComp from '../textArea'
 
 import { useSelector, useDispatch } from 'react-redux';
-import { inputFilled, inputEmpty } from '@/src/redux/buttonSlice';
-import { textAreaFilled, textAreaEmpty } from '@/src/actions/createPostSlice';
+//import { inputFilled, inputEmpty } from '@/src/actions/buttonSlice';
+import { inputFilled, inputEmpty, textAreaFilled, textAreaEmpty } from '@/src/actions/createPostInputSlice';
 
 
 export default function CreatePost(props) {
     const [title, setTitle] = useState("");
     const [postContent, setPostContent] = useState("");
-    const { inputCheck, textareaCheck } = useSelector(state => state);    
+    const { user , inputCheck, textareaCheck } = useSelector(state => state);    
+   
     const dispatch = useDispatch();
 
     
     
     function handleInput(e) {
         
-        e && e != "" ? dispatch(inputFilled(e)) : dispatch(inputEmpty());
+        e != "" ? dispatch(inputFilled(e)) : dispatch(inputEmpty());
         
                       
     }
     function handleTextarea(e) {
         
-        e && e != "" ? dispatch(textAreaFilled(e)) : dispatch(textAreaEmpty());
+        e != "" ? dispatch(textAreaFilled(e)) : dispatch(textAreaEmpty());
         
                       
     } 
 
     async function handleSubmit(){
-       if(inputCheck.isActive && textareaCheck.isActive){
+       
+        if(inputCheck.inputIsActive && inputCheck.textAreaIsActive){
            
         const res = await fetch('https://dev.codeleap.co.uk/careers/', {
             method: 'POST',
             body: JSON.stringify({
-                "username": "ricardio",
+                "username": user.username,
                 "title": title,
-                "content": postContent
+                "content": postContent,
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -61,7 +63,7 @@ export default function CreatePost(props) {
             <h1 className={styles.title}>What’s on your mind?</h1>
             <InputComp title="Title" setTitle={setTitle} handleInput={handleInput} placeholder="Hello world" />
             <TextAreaComp title="Content" setPostContent={setPostContent}  handleTextarea={handleTextarea} placeholder="Content here" />
-            <ButtonComp text="CREATE" active={inputCheck.isActive && textareaCheck.isActive ? true : false} handleClick={handleSubmit}  />
+            <ButtonComp text="CREATE" active={inputCheck.textAreaIsActive && inputCheck.inputIsActive ? true : false} handleClick={handleSubmit}  />
         </div>
     )
 }

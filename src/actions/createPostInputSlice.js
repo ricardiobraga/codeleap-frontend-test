@@ -1,25 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const slice = createSlice({
-    name: 'editor',
+    name: 'inputCheck',
     initialState: {
         input: '',
         textarea: '',
-        isActive: false,
+        inputIsActive: false,
+        textAreaIsActive: false,
     },
     reducers: {
         inputFilled(state, { payload }) {
-            return {...state, isActive: true, input: payload}
+            return {...state, inputIsActive: true, input: payload}
         },
         inputEmpty(state){
-            return {...state, isActive: false, input: ''}            
+            return {...state, inputIsActive: false, input: ''}            
         },
         textAreaFilled(state, { payload }) {
-            return {...state, isActive: true, input: payload}
+            return {...state, textAreaIsActive: true, textarea: payload}
         },
         textAreaEmpty(state){
-            return {...state, isActive: false, input: ''}            
+            return {...state, textAreaIsActive: false, textarea: ''}            
         }
+        
     }
 
 })

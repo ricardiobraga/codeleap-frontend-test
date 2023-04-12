@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ButtonComp from '../button';
 import styles from './styles.module.css';
 
-import { inputFilled, inputEmpty } from '@/src/redux/buttonSlice';
+import { inputFilled, inputEmpty } from '@/src/actions/userSlice';
 import { useDispatch } from 'react-redux';
 
 export default function TextAreaComp(props) {

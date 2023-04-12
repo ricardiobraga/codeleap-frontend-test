@@ -10,12 +10,26 @@
 }
 
 .title {    
-    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 2.4rem;
     height: 7rem;
     border-radius: 1.6rem 1.6rem 0 0;
     background-color: var(--color-softblue);
     
+}
+.icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    
+}
+
+.icon {
+   
+    cursor: pointer;
 }
 .titleText {
     font-size: 2.2rem;
@@ -56,6 +70,18 @@
     font-weight: 400;
     line-height: 2.1rem;
     color: var(--color-black);
+}
+
+.plusBtn{
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    outline: none;
+    font-weight: 700;
+    color: var(--color-white);
+    background-color: var(--color-softgreen);
 }
 
 .hide {

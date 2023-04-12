@@ -30,6 +30,13 @@
     background-color: var(--color-softblue);
 }
 
+.headerLink {
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: var(--color-white);
+    text-decoration: none;
+}
+
 .main {
     width: 100%;
     height: 100%;
