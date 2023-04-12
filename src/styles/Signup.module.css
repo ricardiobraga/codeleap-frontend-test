@@ -1,0 +1,22 @@
+.signupSection {
+    width: 50rem;
+    height: 20.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 2.4rem;
+    border-radius: 1.6rem;
+    border: .1rem solid var(--color-grey);
+    background-color: var(--color-white);
+}
+
+
+.title{
+    align-self: self-start;
+    font-weight: 700;
+    font-size: 2.2rem;
+    line-height: 2.57rem;
+    
+}
