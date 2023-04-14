@@ -3,9 +3,10 @@
     height: 100vh;
     display: flex;
     flex-flow: wrap;
-    padding: 0 2.4rem;
+    
     gap: 2.4rem;
     overflow: scroll;
+    
     
 }
 

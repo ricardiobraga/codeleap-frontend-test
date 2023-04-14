@@ -8,6 +8,7 @@ import TextAreaComp from '../textArea'
 import { useSelector, useDispatch } from 'react-redux';
 
 import { inputFilled, inputEmpty, textAreaFilled, textAreaEmpty } from '@/src/actions/createPostInputSlice';
+import { useRouter } from 'next/router';
 
 
 
@@ -16,7 +17,7 @@ export default function CreatePost(props) {
     const [title, setTitle] = useState("");
     const [postContent, setPostContent] = useState("");
     const { user, inputCheck } = useSelector(state => state);
-    
+    const router = useRouter()
 
     
 
@@ -27,7 +28,7 @@ export default function CreatePost(props) {
     function handleInput(e) {
         
         e != "" ? dispatch(inputFilled(e)) : dispatch(inputEmpty());
-        dispatch(inputFilled(e))
+        
 
     }
     function handleTextarea(e) {
@@ -40,7 +41,7 @@ export default function CreatePost(props) {
 
 
     async function handleSubmit(getposts) {
-        console.log("sadas", user.username);
+        
         if (inputCheck.inputIsActive && inputCheck.textAreaIsActive) {
             const res = await fetch('https://dev.codeleap.co.uk/careers/', {
                 method: 'POST',
@@ -54,6 +55,9 @@ export default function CreatePost(props) {
                 },
             });
              await getposts()
+             
+
+             
                         
             
         }       

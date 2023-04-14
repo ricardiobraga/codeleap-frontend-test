@@ -8,8 +8,8 @@ import editIcon from '@/src/public/icons/editIcon.svg';
 
 
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleDeleteOn, toggleEditOn, saveID} from '@/src/actions/toggleModalButtonSlice';
-import { motion } from 'framer-motion';
+import { toggleDeleteOn, toggleEditOn, saveID } from '@/src/actions/toggleModalButtonSlice';
+import { motion, useAnimation } from 'framer-motion';
 
 
 
@@ -18,16 +18,29 @@ export default function Post(props) {
 
     const { user } = useSelector(state => state);
     const dispatch = useDispatch();
-    
+
+    //const controls = useAnimation();
+    //controls.setDefaultTransition({type})
+    async function animateControl(key) {
+        controls.set({
+            opacity: 0,
+            y: 100
+        })
+        controls.start({
+            opacity: 100,
+                y: 0,
+        })
+    }
+
 
     function handleDelete(id) {
         dispatch(toggleDeleteOn(id))
         dispatch(saveID(id))
 
-        
+
     }
     function handleEdit(id) {
-        
+        animateControl()
         dispatch(toggleEditOn(id))
         dispatch(saveID(id))
     }
@@ -35,16 +48,7 @@ export default function Post(props) {
 
 
     return (
-        <motion.div className={styles.postContent} initial="hidden" animate="visible" transition={{ delay: props.delay }}   variants={{
-            hidden: {
-              opacity: 0,
-              y: 100
-            },
-            visible: {
-              opacity: 100,
-              y: 0,             
-            }
-          }}>
+        <motion.div className={styles.postContent} animate={props.controls} transition={{ delay: props.delay }} >
             <div className={styles.title}>
                 <h1 className={styles.titleText}>{props.title}</h1>
                 <div className={props.username === props.usernameQuery ? styles.icons : styles.hide}>

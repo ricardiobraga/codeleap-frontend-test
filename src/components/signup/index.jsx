@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-//import { Link } from 'react-scroll';
+
 
 import styles from '@/src/styles/Signup.module.css';
 import InputComp from '../input';
@@ -27,20 +27,15 @@ export default function Signup(props) {
 
   function handleInput(e) {
 
-
     e != "" ? dispatch(inputFilled()) : dispatch(inputEmpty());
     e != "" ? dispatch(login(e)) : dispatch(logout(""));
-    console.log(link);
-
-
-
-
 
   }
 
   function handleClick() {
     if (inputCheck.inputIsActive) {
       localStorage.setItem("user", user.username);
+      dispatch(inputEmpty());
     }
 
   }
@@ -71,9 +66,9 @@ export default function Signup(props) {
         <h1 className={styles.title}>Welcome to CodeLeap network!</h1>
         <InputComp title="Please enter your username" placeholder="John doe" handleInput={handleInput} setLink={setLink} />
 
-        <a href={inputCheck.inputIsActive ? `${user.username}` : ""} >
-          <ButtonComp text="ENTER" active={inputCheck.inputIsActive} handleClick={handleClick} />
-        </a>
+        <Link href={inputCheck.inputIsActive ? `/${user.username}` : ""} >
+          <ButtonComp text="ENTER" active={inputCheck.inputIsActive}  handleClick={handleClick} />
+        </Link>
 
       </div>
     </motion.section>

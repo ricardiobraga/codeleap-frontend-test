@@ -10,6 +10,9 @@ export default function ButtonComp(props){
     }
 
     function handleType(propsType){
+        if(props.type === "btnInactive"){
+            return styles.btnInactive
+        }
         if(props.type === "red"){
             return styles.btnRed
         }
