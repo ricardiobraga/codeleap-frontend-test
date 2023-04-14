@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import ButtonComp from '../button';
+import {useState} from 'react';
+
 import styles from './styles.module.css';
 
-import { inputFilled, inputEmpty } from '@/src/actions/userSlice';
+import { inputFilled, inputEmpty } from '@/src/actions/createPostInputSlice';
 import { useDispatch } from 'react-redux';
 
 export default function TextAreaComp(props) {
@@ -13,7 +13,7 @@ export default function TextAreaComp(props) {
     function handleInput(e){        
         //setInputValue(e);
         e != "" ? dispatch(inputFilled(e))  : dispatch(inputEmpty()) ;
-        //dispatch(inputFilled(e))
+        
              
     }
 

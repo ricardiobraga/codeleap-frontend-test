@@ -1,13 +1,50 @@
 import Head from 'next/head'
-import styles from '@/src/styles/Home.module.css'
-import { Provider } from 'react-redux'
-import store from '../redux/store'
-import MainScreen from '../components/mainScreen'
+import { useState } from 'react'
+import styles from '@/src/styles/MainScreen.module.css';
 
 
 
 
-export default function Home({ posts }) {
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleButtonOn, toggleButtonOff } from '@/src/actions/toggleModalButtonSlice';
+
+import Post from '../components/post'
+import CreatePost from '../components/createPost'
+
+import DeleteModal from '../components/deleteModal'
+
+
+
+
+export default function MainScreenTest({ posts }) {
+  const [modal, setModal] = useState(false);
+
+ 
+  function cropText(textContent) {
+    //setContent(textContent)
+    let cropContent = "";
+    if (textContent.length > 545) {
+      cropContent = textContent.slice(0, 545);
+
+
+      return (cropContent + "...")
+    } else {
+      return textContent
+    }
+
+  }
+
+  function setDate(created_datetime) {
+    //"2023-04-12T17:05:29.312893Z"
+    let postDate = new Date(created_datetime);
+    let moment = new Date(Date.now());
+    let diff = moment.getTime() - postDate.getTime();
+    return Math.round(diff / 60000)
+
+
+  }
+
+
   return (
     <>
       <Head>
@@ -16,24 +53,54 @@ export default function Home({ posts }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Provider store={store}>
+      
         <main className={styles.main}>
-          {/* <Signup /> */}
-          <MainScreen posts={posts} />
+
+          <section className={styles.mainSection}>
+            <header className={styles.header}>
+              <a className={styles.headerLink} href='/'>CodeLeap Network</a>
+            </header>
+            <section className={styles.main} >
+              <CreatePost />
+
+
+
+              {posts.results?.map((post, i) => (
+                <Post key={i} title={post.title} username={post.username} content={cropText(post.content)} fullContent={post.content} created_datetime={setDate(post.created_datetime)} />
+              ))}
+
+
+
+            </section>
+            <section>
+
+
+            </section>
+
+
+          </section>
+
+          {/* <MainScreen posts={posts} /> */}
+
+
+          <DeleteModal />
         </main >
-      </Provider>
+
+
+
+      
     </>
   )
 }
 
-export async function getStaticProps(){    
- 
+export async function getStaticProps() {
+
   const data = await fetch('https://dev.codeleap.co.uk/careers/')
   const posts = await data.json()
-  
-  return { 
-      props: { posts },
-  } 
-  
+
+  return {
+    props: { posts },
+  }
+
 
 }

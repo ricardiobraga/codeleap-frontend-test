@@ -28,6 +28,6 @@ export const slice = createSlice({
 
 export const { inputFilled, inputEmpty, textAreaFilled, textAreaEmpty } = slice.actions
 
-export const selectButton = state => state.button
+export const selectButton = state => state
 
 export default slice.reducer

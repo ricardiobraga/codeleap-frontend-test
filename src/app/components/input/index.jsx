@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import ButtonComp from '../button';
 import styles from './styles.module.css';
 

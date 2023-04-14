@@ -16,7 +16,7 @@
   --color-white: #FFFFFF;
   --color-black: #000000;
   --color-grey: #CCCCCC;
-  --color-darkgrey: #777777;
+  --color-darkgrey: #999999;
   --color-bg: #DDDDDD;
   --color-softgreen: #47B960;
   --color-softblue: #7695EC;
@@ -36,3 +36,5 @@ main {
   background-color: var(--color-bg);
 
 }
+
+
