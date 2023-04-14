@@ -6,6 +6,7 @@ import { toggleDeleteOff } from '@/src/actions/toggleModalButtonSlice';
 import ButtonComp from '../button';
 import { useRouter } from 'next/navigation';
 import { set } from 'nprogress';
+import { motion } from 'framer-motion';
 
 
 export default function DeleteModal(props) {
@@ -38,7 +39,16 @@ export default function DeleteModal(props) {
         <>
             {
                 toggleButton.toggleDelete && (
-                    <div className={styles.modal}>
+                    <motion.div className={styles.modal} initial="hidden" animate="visible" variants={{
+                        hidden: {
+                          opacity: 0,
+                          y: 50
+                        },
+                        visible: {
+                          opacity: 100,
+                          y: 0,             
+                        }
+                      }}>
                         <div className={styles.overlay} onClick={toggleModal}>
                             <div className={styles.modalContent}>
                                 <h1 className={styles.title}>Are you sure you want to delete this item?</h1>
@@ -49,7 +59,7 @@ export default function DeleteModal(props) {
                             </div>
                         </div>
 
-                    </div>
+                    </motion.div>
                 )
 
             }

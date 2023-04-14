@@ -12,16 +12,11 @@ import { inputFilled, inputEmpty, textAreaFilled, textAreaEmpty } from '@/src/ac
 
 
 
-
-
-
-
-
-
 export default function CreatePost(props) {
     const [title, setTitle] = useState("");
     const [postContent, setPostContent] = useState("");
     const { user, inputCheck } = useSelector(state => state);
+    
 
     
 
@@ -30,10 +25,9 @@ export default function CreatePost(props) {
 
 
     function handleInput(e) {
-
+        
         e != "" ? dispatch(inputFilled(e)) : dispatch(inputEmpty());
-
-
+        dispatch(inputFilled(e))
 
     }
     function handleTextarea(e) {
@@ -46,13 +40,12 @@ export default function CreatePost(props) {
 
 
     async function handleSubmit(getposts) {
-
+        console.log("sadas", user.username);
         if (inputCheck.inputIsActive && inputCheck.textAreaIsActive) {
-
             const res = await fetch('https://dev.codeleap.co.uk/careers/', {
                 method: 'POST',
                 body: JSON.stringify({
-                    "username": user.username,
+                    "username": props.usernameQuery,
                     "title": title,
                     "content": postContent,
                 }),

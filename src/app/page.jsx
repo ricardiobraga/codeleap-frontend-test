@@ -8,24 +8,24 @@ import MainScreen from './components/MainScreen';
 
 import DeleteModal from './components/deleteModal';
 import { useEffect, useState } from 'react';
+import { Router } from 'next/router';
+import { motion, ScrollMotionValues } from 'framer-motion';
+
+
 
 
 
 
 export default function Home() {
- 
-
-  
-
-
-
-
 
 
   return (
     <>
 
       <main className={styles.main}>
+        
+          
+        
         <Signup />
         <MainScreen/>
 

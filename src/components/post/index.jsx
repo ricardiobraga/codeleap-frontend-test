@@ -9,6 +9,8 @@ import editIcon from '@/src/public/icons/editIcon.svg';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleDeleteOn, toggleEditOn, saveID} from '@/src/actions/toggleModalButtonSlice';
+import { motion } from 'framer-motion';
+
 
 
 
@@ -33,10 +35,19 @@ export default function Post(props) {
 
 
     return (
-        <div className={styles.postContent}>
+        <motion.div className={styles.postContent} initial="hidden" animate="visible" transition={{ delay: props.delay }}   variants={{
+            hidden: {
+              opacity: 0,
+              y: 100
+            },
+            visible: {
+              opacity: 100,
+              y: 0,             
+            }
+          }}>
             <div className={styles.title}>
                 <h1 className={styles.titleText}>{props.title}</h1>
-                <div className={user.username === props.username ? styles.icons : styles.hide}>
+                <div className={props.username === props.usernameQuery ? styles.icons : styles.hide}>
                     <a className={styles.icon} onClick={() => handleDelete(props.id)}>
                         <Image src={deleteIcon} alt='delete icon' />
                     </a>
@@ -55,6 +66,6 @@ export default function Post(props) {
 
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }

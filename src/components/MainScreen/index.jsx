@@ -8,14 +8,21 @@ import styles from '@/src/styles/MainScreen.module.css';
 
 import CreatePost from '../createPost';
 import Post from '../post';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import DeleteModal from '../deleteModal';
 import UpdateModal from '../updateModal';
 
 
 export default function MainScreen({  }) {
+
+  const router = useRouter();
+
+  const username = router.query.mainScreen
   
+  
+  
+  const [test, setTest] = useState(router.query.mainScreen)
   const [posts, setposts] = useState({})
 
 
@@ -73,11 +80,11 @@ export default function MainScreen({  }) {
               <a className={styles.headerLink} href='/'>CodeLeap Network</a>
             </header>
             <section className={styles.main} >
-              <CreatePost getposts={getposts}  />
+              <CreatePost getposts={getposts} usernameQuery={username}   />
               
 
               {posts.results?.map((post, i) => (
-                <Post key={i} title={post.title} id={post.id} username={post.username} content={cropText(post.content)} fullContent={post.content} created_datetime={setDate(post.created_datetime)} />
+                <Post key={i} title={post.title} usernameQuery={username}  id={post.id} username={post.username} content={cropText(post.content)} fullContent={post.content} created_datetime={setDate(post.created_datetime)}  delay={.5 + (i /10)}/>
               ))}
 
             </section>

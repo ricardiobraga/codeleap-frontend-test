@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userReducer from '../actions/userSlice';
-import inputCheckReducer from '../actions/createPostInputSlice';
-import toggleButtonReducer from '../actions/toggleModalButtonSlice';
-import reloadReducer from '../actions/realoadSlice';
+import userReducer from '@/src/actions/userSlice';
+import inputCheckReducer from '@/src/actions/createPostInputSlice';
+import toggleButtonReducer from '@/src/actions/toggleModalButtonSlice';
+import reloadReducer from '@/src/actions/realoadSlice';
 
 
 export default configureStore({
