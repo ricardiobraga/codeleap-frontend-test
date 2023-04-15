@@ -32,3 +32,17 @@
     line-height: 2.57rem;
     
 }
+
+@media (max-width: 48rem) {
+    .signupContainer {
+        padding: 0 2.4rem;
+        width: 39rem;
+        
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+  
+    
+  }

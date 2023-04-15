@@ -49,20 +49,24 @@ export default function Signup(props) {
 
 
   return (
-    <motion.section id='sign' className={styles.signupContainer} initial="hidden" animate="visible" variants={{
+    <section id='sign' className={styles.signupContainer} >
+      <motion.div className={styles.signupSection}  initial="hidden" animate="visible" variants={{
       hidden: {
-        scale: .8,
+        y: "10vh",
+        
         opacity: 0
       },
       visible: {
-        scale: 1,
+        y: 0,
+        
         opacity: 1,
         transition: {
-          delay: .0
+          duration:.3,
+          ease: "easeInOut"
+
         }
       },
-    }} >
-      <div className={styles.signupSection}>
+    }}>
         <h1 className={styles.title}>Welcome to CodeLeap network!</h1>
         <InputComp title="Please enter your username" placeholder="John doe" handleInput={handleInput} setLink={setLink} />
 
@@ -70,7 +74,7 @@ export default function Signup(props) {
           <ButtonComp text="ENTER" active={inputCheck.inputIsActive}  handleClick={handleClick} />
         </Link>
 
-      </div>
-    </motion.section>
+      </motion.div>
+    </section>
   )
 }
