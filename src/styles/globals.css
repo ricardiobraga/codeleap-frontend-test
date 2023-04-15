@@ -34,7 +34,7 @@ body::-webkit-scrollbar{
 
 
 main {
-  width: 100vw;
+  width: 300vw;
   height: 100vh;
   display: flex;
   justify-content: center;

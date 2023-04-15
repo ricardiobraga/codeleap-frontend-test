@@ -46,3 +46,14 @@
     justify-content: flex-end;
     gap: 2.4rem;
 }
+
+@media (max-width: 48rem) {
+    .modalContent{
+        width: 39rem;
+    }
+    .title {
+        font-size: 1.8rem;
+    }
+  
+    
+  }

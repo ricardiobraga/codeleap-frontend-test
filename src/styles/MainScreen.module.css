@@ -54,6 +54,15 @@
     
 }
 
-.modal {
+@media (max-width: 48rem) {
+    
+    .mainSection{
+        width: 100vw;
 
-}
+    }
+
+        
+
+  
+    
+  }
