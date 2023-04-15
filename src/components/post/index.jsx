@@ -21,16 +21,16 @@ export default function Post(props) {
 
     //const controls = useAnimation();
     //controls.setDefaultTransition({type})
-    async function animateControl(key) {
-        controls.set({
-            opacity: 0,
-            y: 100
-        })
-        controls.start({
-            opacity: 100,
-                y: 0,
-        })
-    }
+    // async function animateControl(key) {
+    //     controls.set({
+    //         opacity: 0,
+    //         y: 100
+    //     })
+    //     controls.start({
+    //         opacity: 100,
+    //             y: 0,
+    //     })
+    // }
 
 
     function handleDelete(id) {
@@ -40,7 +40,7 @@ export default function Post(props) {
 
     }
     function handleEdit(id) {
-        animateControl()
+        
         dispatch(toggleEditOn(id))
         dispatch(saveID(id))
     }

@@ -24,3 +24,10 @@
     
 
 }
+
+.span {
+    color: var(--color-softred);
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 1.875rem;
+}

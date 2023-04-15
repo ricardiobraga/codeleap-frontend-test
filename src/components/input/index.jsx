@@ -25,8 +25,8 @@ export default function InputComp(props) {
               y: 0,             
             }
           }}  >
-            <h1 className={styles.title}>{props.title}</h1>
-            <input className={styles.input} type='text' placeholder={props.placeholder} value={inputValue} onChange={ (e) => {
+            <h1 className={styles.title}>{props.title} <span className={styles.span}>*</span></h1>
+            <input className={styles.input} type='text' placeholder={props.placeholder} value={inputValue} required onChange={ (e) => {
                 setInputValue(e.target.value);  
                 props.setTitle ? props.setTitle(e.target.value) : null;               
                 props.handleInput(e.target.value);

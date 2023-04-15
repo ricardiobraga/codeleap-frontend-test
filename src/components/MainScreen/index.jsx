@@ -1,10 +1,5 @@
 
-
 import styles from '@/src/styles/MainScreen.module.css';
-
-
-
-
 
 import CreatePost from '../createPost';
 import Post from '../post';
@@ -14,14 +9,11 @@ import { useEffect, useState } from 'react';
 import DeleteModal from '../deleteModal';
 import UpdateModal from '../updateModal';
 import Link from 'next/link';
-import { AnimatePresence, motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { logout } from '@/src/actions/userSlice';
-import { duration } from 'moment/moment';
-
-
 
 export default function MainScreen({ }) {
   const controls = useAnimation();
@@ -30,15 +22,10 @@ export default function MainScreen({ }) {
   const dispatch = useDispatch();
 
 
-
-
   const username = router.query.mainScreen
 
-
-
-  const [test, setTest] = useState(router.query.mainScreen)
+  
   const [posts, setposts] = useState({})
-
 
 
   function getposts() {
@@ -47,8 +34,8 @@ export default function MainScreen({ }) {
       .then(res => setposts(res));
 
     animateControl()
-    console.log("fetch");
-    //console.log(router.query.mainScreen);
+    
+    
 
 
   }
