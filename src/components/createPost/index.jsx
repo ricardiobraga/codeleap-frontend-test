@@ -19,16 +19,16 @@ export default function CreatePost(props) {
     const { user, inputCheck } = useSelector(state => state);
     const router = useRouter()
 
-    
+
 
     const dispatch = useDispatch();
 
 
 
     function handleInput(e) {
-        
+
         e != "" ? dispatch(inputFilled(e)) : dispatch(inputEmpty());
-        
+
 
     }
     function handleTextarea(e) {
@@ -41,7 +41,7 @@ export default function CreatePost(props) {
 
 
     async function handleSubmit(getposts) {
-        
+
         if (inputCheck.inputIsActive && inputCheck.textAreaIsActive) {
             const res = await fetch('https://dev.codeleap.co.uk/careers/', {
                 method: 'POST',
@@ -54,13 +54,17 @@ export default function CreatePost(props) {
                     'Content-Type': 'application/json'
                 },
             });
-             await getposts()
-             
+            setTitle("")
+            setPostContent("")
+            //router.reload()
+            await getposts()
 
-             
-                        
-            
-        }       
+
+
+
+
+        }
+
     }
 
 
@@ -71,8 +75,8 @@ export default function CreatePost(props) {
 
         <div className={styles.createPostContent}>
             <h1 className={styles.title}>What’s on your mind?</h1>
-            <InputComp title="Title" setTitle={setTitle} handleInput={handleInput} placeholder="Hello world" />
-            <TextAreaComp title="Content" setPostContent={setPostContent} handleTextarea={handleTextarea} placeholder="Content here" />
+            <InputComp title="Title" setInputValue={setTitle} inputValue={title} handleInput={handleInput} placeholder="Hello world" />
+            <TextAreaComp title="Content" setPostContent={setPostContent} content={postContent} handleTextarea={handleTextarea} placeholder="Content here" />
             <ButtonComp text="CREATE" active={inputCheck.textAreaIsActive && inputCheck.inputIsActive ? true : false} handleClick={() => handleSubmit(props.getposts)} />
 
         </div>

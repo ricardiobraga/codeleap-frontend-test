@@ -18,7 +18,7 @@ import { useRouter } from 'next/router';
 
 export default function Signup(props) {
 
-  
+  const [input, setInput] = useState("");
 
   const { user, inputCheck } = useSelector(state => state)
   const [link, setLink] = useState("/");
@@ -68,7 +68,7 @@ export default function Signup(props) {
       },
     }}>
         <h1 className={styles.title}>Welcome to CodeLeap network!</h1>
-        <InputComp title="Please enter your username" placeholder="John doe" handleInput={handleInput} setLink={setLink} />
+        <InputComp title="Please enter your username" placeholder="John doe" setInputValue={setInput} inputValue={input}  handleInput={handleInput} setLink={setLink} />
 
         
           <ButtonComp text="ENTER" active={inputCheck.inputIsActive}  handleClick={handleClick} />

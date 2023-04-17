@@ -7,16 +7,10 @@ import { useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
 
 export default function TextAreaComp(props) {
-    const [inputValue, setInputValue] = useState("");
-    const [active, setActive] = useState(false);
+    const [inputValue, setInputValue] = useState("");    
     const dispatch = useDispatch();
    
-    function handleInput(e){        
-        //setInputValue(e);
-        e != "" ? dispatch(inputFilled(e))  : dispatch(inputEmpty()) ;
-        
-             
-    }
+
 
 
     return (
@@ -31,10 +25,11 @@ export default function TextAreaComp(props) {
             }
           }} >
             <h1 className={styles.title}>{props.title} <span className={styles.span}>*</span></h1>
-            <textarea className={styles.textarea} type='text' rows="3" placeholder={props.placeholder} value={inputValue} required onChange={ (e) => {
+            <textarea className={styles.textarea} type='text' rows="3" placeholder={props.placeholder} value={props.content} required onChange={ (e) => {
                 setInputValue(e.target.value);
-                props.setPostContent(e.target.value)
+                props.setPostContent(e.target.value);
                 props.handleTextarea(e.target.value);
+                
                 }} />   
                     
         </motion.div>

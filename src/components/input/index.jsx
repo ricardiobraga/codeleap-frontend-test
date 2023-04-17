@@ -38,9 +38,10 @@ export default function InputComp(props) {
             }
           }}  >
             <h1 className={styles.title}>{props.title} <span className={styles.span}>*</span></h1>
-            <input className={styles.input} type='text' placeholder={props.placeholder} value={inputValue} required onKeyDown={e => keyHandler(e)} onChange={ (e) => {
-                setInputValue(e.target.value);  
-                props.setTitle ? props.setTitle(e.target.value) : null;               
+            <input className={styles.input} type='text' placeholder={props.placeholder} value={props.inputValue} required onKeyDown={e => keyHandler(e)} onChange={ (e) => {
+                 
+                props.setTitle ? props.setTitle(e.target.value) : null;  
+                props.setInputValue(e.target.value)             
                 props.handleInput(e.target.value);
                 }} />   
                     

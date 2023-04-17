@@ -18,15 +18,9 @@ export default function TextModal(props) {
     const { toggleButton } = useSelector(state => state);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        fetch(`https://dev.codeleap.co.uk/careers/${toggleButton.id}/`, {
-                method: 'GET',
-    
-            })
-            .then(res => res.json ())
-            .then(res => {setTitle(res.title); setContent(res.content)})
-            
-    }, [toggleButton.toggleText])
+    const [toggle, setToggle] = useState(toggleButton.id)
+
+   
 
     function toggleModal() {
         dispatch(toggleTextOff())
@@ -48,8 +42,8 @@ export default function TextModal(props) {
                       }}>
                         <div className={styles.overlay} onClick={toggleModal}>
                             <div className={styles.modalContent}>
-                                <h1 className={styles.title}>{title}</h1>
-                                <p className={styles.content}>{content}</p>
+                                <h1 className={styles.title}>{toggleButton.title}</h1>
+                                <p className={styles.content}>{toggleButton.content}</p>
                                 <div className={styles.btnContainer}>
                                     <ButtonComp text="Close" active={true} type="white" handleClick={toggleModal} />
                                     

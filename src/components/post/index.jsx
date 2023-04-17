@@ -8,15 +8,13 @@ import editIcon from '@/src/public/icons/editIcon.svg';
 
 
 import { useDispatch } from 'react-redux';
-import { toggleDeleteOn, toggleEditOn, toggleTextOn, saveID } from '@/src/actions/toggleModalButtonSlice';
+import { toggleDeleteOn, toggleEditOn, toggleTextOn, saveID, saveTitle, saveContent } from '@/src/actions/toggleModalButtonSlice';
 import { motion } from 'framer-motion';
 
 
 
 
 export default function Post(props) {
-
-
     const dispatch = useDispatch();
 
 
@@ -29,8 +27,16 @@ export default function Post(props) {
     }
 
     function handleText(id) {
-        dispatch(toggleTextOn(id))
+
+        fetch(`https://dev.codeleap.co.uk/careers/${id}/`, {
+            method: 'GET',
+
+        })
+        .then(res => res.json ())
+        .then(res => {dispatch(saveTitle(res.title)); dispatch(saveContent(res.content))})
+
         dispatch(saveID(id))
+        dispatch(toggleTextOn(id))
     }
 
     function handleEdit(id) {
