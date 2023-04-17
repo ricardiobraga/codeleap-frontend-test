@@ -14,6 +14,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { useDispatch } from 'react-redux';
 
 import { logout } from '@/src/actions/userSlice';
+import TextModal from '../TextModal';
 
 export default function MainScreen({ }) {
   const controls = useAnimation();
@@ -61,8 +62,8 @@ export default function MainScreen({ }) {
   function cropText(textContent) {
     //setContent(textContent)
     let cropContent = "";
-    if (textContent.length > 545) {
-      cropContent = textContent.slice(0, 545);
+    if (textContent.length > 140) {
+      cropContent = textContent.slice(0, 140);
 
 
       return (cropContent + "...")
@@ -80,7 +81,19 @@ export default function MainScreen({ }) {
     let postDate = new Date(created_datetime);
     let moment = new Date(Date.now());
     let diff = moment.getTime() - postDate.getTime();
-    return Math.round(diff / 60000)
+    let minutes =  Math.round(diff / 60000)
+
+    if(minutes < 60){
+      return minutes + " minutes ago"
+    }
+
+    if(minutes >= 60){
+      return parseInt( minutes / 60) + " hours ago"
+    }
+
+    if(minutes >= 1440){
+      return parseInt( minutes / 60) + " days ago"
+    }
 
 
   }
@@ -131,6 +144,7 @@ export default function MainScreen({ }) {
 
       <UpdateModal getposts={getposts} className={styles.modal} />
       <DeleteModal getposts={getposts} />
+      <TextModal getposts={getposts} />
     </>
   )
 }

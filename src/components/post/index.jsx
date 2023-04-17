@@ -8,7 +8,7 @@ import editIcon from '@/src/public/icons/editIcon.svg';
 
 
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleDeleteOn, toggleEditOn, saveID } from '@/src/actions/toggleModalButtonSlice';
+import { toggleDeleteOn, toggleEditOn, toggleTextOn, saveID } from '@/src/actions/toggleModalButtonSlice';
 import { motion, useAnimation } from 'framer-motion';
 
 
@@ -16,31 +16,25 @@ import { motion, useAnimation } from 'framer-motion';
 
 export default function Post(props) {
 
-    const { user } = useSelector(state => state);
+
     const dispatch = useDispatch();
 
-    //const controls = useAnimation();
-    //controls.setDefaultTransition({type})
-    // async function animateControl(key) {
-    //     controls.set({
-    //         opacity: 0,
-    //         y: 100
-    //     })
-    //     controls.start({
-    //         opacity: 100,
-    //             y: 0,
-    //     })
-    // }
+
 
 
     function handleDelete(id) {
         dispatch(toggleDeleteOn(id))
         dispatch(saveID(id))
 
-
     }
+
+    function handleText(id) {
+        dispatch(toggleTextOn(id))
+        dispatch(saveID(id))
+    }
+
     function handleEdit(id) {
-        
+
         dispatch(toggleEditOn(id))
         dispatch(saveID(id))
     }
@@ -63,11 +57,10 @@ export default function Post(props) {
             <div className={styles.mainContainer}>
                 <div className={styles.postInfo}>
                     <span className={styles.user}>@{props.username}</span>
-                    <span className={styles.data}>{props.created_datetime} minutes ago</span>
+                    <span className={styles.data}>{props.created_datetime}</span>
                 </div>
                 <div >
-                    <p className={styles.postText}> {props.content} <button className={props.content.length > 540 ? styles.plusBtn : styles.hide}>+</button> </p>
-
+                    <p className={styles.postText}> {props.content} <button className={props.content.length > 140 ? styles.plusBtn : styles.hide} onClick={() => handleText(props.id)} >+</button> </p>
                 </div>
             </div>
         </motion.div>

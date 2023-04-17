@@ -3,6 +3,8 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+
+    
     justify-content: space-between;
     align-items: center;
     
@@ -42,7 +44,7 @@
     height: 100%;
     display: flex;
     flex-flow: wrap;
-    
+    margin-bottom: 2.4rem;
     padding: 0 2.4rem;
     gap: 2.4rem;
     overflow: scroll;
@@ -58,7 +60,7 @@
     
     .mainSection{
         width: 100vw;
-
+        
     }
 
         

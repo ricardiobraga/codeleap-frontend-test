@@ -8,9 +8,7 @@ import { motion } from 'framer-motion';
 
 export default function InputComp(props) {
     const [inputValue, setInputValue] = useState("");
-    const [active, setActive] = useState(false);    
-
-    
+    const [active, setActive] = useState(false);      
 
 
 

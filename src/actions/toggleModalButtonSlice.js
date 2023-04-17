@@ -6,6 +6,7 @@ export const slice = createSlice({
         id:"",    
         toggleDelete: false,        
         toggleEdit: false,        
+        toggleText: false,        
     },
     reducers: {
         toggleDeleteOn(state) {
@@ -20,6 +21,12 @@ export const slice = createSlice({
         toggleEditOff(state){
             return {...state, toggleEdit: false}            
         },
+        toggleTextOn(state) {
+            return {...state, toggleText: true}
+        },
+        toggleTextOff(state){
+            return {...state, toggleText: false}            
+        },
 
 
         saveID(state, { payload }) {
@@ -31,7 +38,7 @@ export const slice = createSlice({
 
 })
 
-export const { toggleDeleteOn, toggleDeleteOff, toggleEditOn, toggleEditOff, saveID } = slice.actions
+export const { toggleDeleteOn, toggleDeleteOff, toggleEditOn, toggleEditOff, toggleTextOn, toggleTextOff, saveID } = slice.actions
 
 export const selectButton = state => state.button
 
