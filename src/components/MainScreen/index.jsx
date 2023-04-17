@@ -14,7 +14,8 @@ import { motion, useAnimation } from 'framer-motion';
 import { useDispatch } from 'react-redux';
 
 import { logout } from '@/src/actions/userSlice';
-import TextModal from '../TextModal';
+import TextModal from '../textModal';
+
 
 export default function MainScreen({ }) {
   const controls = useAnimation();
@@ -35,8 +36,6 @@ export default function MainScreen({ }) {
       .then(res => setposts(res));
 
     animateControl()
-    
-    
 
 
   }
@@ -145,6 +144,7 @@ export default function MainScreen({ }) {
       <UpdateModal getposts={getposts} className={styles.modal} />
       <DeleteModal getposts={getposts} />
       <TextModal getposts={getposts} />
+      
     </>
   )
 }
