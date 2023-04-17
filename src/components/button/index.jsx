@@ -28,7 +28,7 @@ export default function ButtonComp(props){
 
     return(
 
-        <button className={ props.active ? handleType() : styles.btnInactive} onClick={props.handleClick}> {props.text} </button>
+        <button className={ props.active ? handleType() : styles.btnInactive} onClick={props.handleClick} > {props.text} </button>
         
     )
 }

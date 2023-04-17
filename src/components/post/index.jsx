@@ -7,9 +7,9 @@ import deleteIcon from '@/src/public/icons/deleteIcon.svg';
 import editIcon from '@/src/public/icons/editIcon.svg';
 
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { toggleDeleteOn, toggleEditOn, toggleTextOn, saveID } from '@/src/actions/toggleModalButtonSlice';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 
 

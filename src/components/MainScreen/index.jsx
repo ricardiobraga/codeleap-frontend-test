@@ -60,7 +60,7 @@ export default function MainScreen({ }) {
 
 
   function cropText(textContent) {
-    //setContent(textContent)
+    
     let cropContent = "";
     if (textContent.length > 140) {
       cropContent = textContent.slice(0, 140);

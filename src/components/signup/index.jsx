@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import React from 'react';
 
 
@@ -11,6 +10,7 @@ import { login, logout } from '@/src/actions/userSlice';
 import { useState } from 'react';
 
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 
 
 
@@ -22,6 +22,7 @@ export default function Signup(props) {
 
   const { user, inputCheck } = useSelector(state => state)
   const [link, setLink] = useState("/");
+  const router = useRouter();
 
   const dispatch = useDispatch();
 
@@ -35,15 +36,14 @@ export default function Signup(props) {
   function handleClick() {
     if (inputCheck.inputIsActive) {
       localStorage.setItem("user", user.username);
+      router.push(inputCheck.inputIsActive ? `/${user.username}` : "")
       dispatch(inputEmpty());
+
     }
 
   }
 
-  function scrolls() {
-    window.document.scrollingElement?.scrollTo(0, 0)
-    console.log("sss");
-  }
+
 
 
 
@@ -70,9 +70,9 @@ export default function Signup(props) {
         <h1 className={styles.title}>Welcome to CodeLeap network!</h1>
         <InputComp title="Please enter your username" placeholder="John doe" handleInput={handleInput} setLink={setLink} />
 
-        <Link href={inputCheck.inputIsActive ? `/${user.username}` : ""} >
+        
           <ButtonComp text="ENTER" active={inputCheck.inputIsActive}  handleClick={handleClick} />
-        </Link>
+        
 
       </motion.div>
     </section>
