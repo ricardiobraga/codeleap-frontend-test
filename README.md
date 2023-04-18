@@ -9,7 +9,7 @@ This is a project developed as a test for a junior frontend developer at the com
 The proposal is a blog that lists posts and allows the creation, editing, and deletion of content made by the user who is logged in.
 
 ## Layout mobile
-![Mobile1](https://github.com/ricardiobraga/codeleap-frontend-test/blob/main/src/public/assets/layout-mobile-home.png) ![Mobile2](https://github.com/ricardiobraga/codeleap-frontend-test/blob/main/src/public/assets/layout-mobile-blog.pnh)
+![Mobile1](https://github.com/ricardiobraga/codeleap-frontend-test/blob/main/src/public/assets/layout-mobile-home.png)  ![Mobile2](https://github.com/ricardiobraga/codeleap-frontend-test/blob/main/src/public/assets/layout-mobile-blog.png)
 
 ## Layout web
 ![Web1](https://github.com/ricardiobraga/codeleap-frontend-test/blob/main/src/public/assets/layout-home.png)
