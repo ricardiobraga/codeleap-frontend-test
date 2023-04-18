@@ -1,6 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CODELEAP TEST CRUD
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/ricardiobraga/codeleap-frontend-test/blob/main/LICENCE) 
 
-## Getting Started
+# ABOUT
+
+https://vercel.com/ricardiobraga/codeleap-test
+
+This is a project developed as a test for a junior frontend developer at the company Codeleap.
+The proposal is a blog that lists posts and allows the creation, editing, and deletion of content made by the user who is logged in.
+
+## Layout mobile
+![Mobile1] (https://github.com/ricardiobraga/codeleap-frontend-test/blob/main/src/public/assets/layout-mobile-home.jpeg) ![Mobile2] (https://github.com/ricardiobraga/codeleap-frontend-test/blob/main/src/public/assets/layout-mobile-blog.jpeg)
+
+## Layout web
+![Web1] (https://github.com/ricardiobraga/codeleap-frontend-test/blob/main/src/public/assets/layout-home.png)
+![Web1] (https://github.com/ricardiobraga/codeleap-frontend-test/blob/main/src/public/assets/layout-blog.png)
+
+# TECHNOLOGIES
+- NextJS
+- ReactJS
+- Framer Motion
+- reduxJS/toolkit
+
+# Getting Started
 
 First, run the development server:
 

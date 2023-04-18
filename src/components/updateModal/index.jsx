@@ -3,7 +3,7 @@ import styles from './styles.module.css'
 
 import ButtonComp from '../button';
 
-import { set } from 'nprogress';
+
 
 import InputComp from '../input';
 import TextAreaComp from '../textArea';
@@ -11,7 +11,7 @@ import TextAreaComp from '../textArea';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleEditOff } from '@/src/actions/toggleModalButtonSlice';
 import { inputFilled, inputEmpty, textAreaFilled, textAreaEmpty } from '@/src/actions/createPostInputSlice';
-import { login } from '@/src/actions/userSlice';
+
 import { motion } from 'framer-motion';
 
 

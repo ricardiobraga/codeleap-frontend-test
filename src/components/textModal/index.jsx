@@ -7,8 +7,8 @@ import ButtonComp from '../button';
 
 
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import { set } from 'nprogress';
+import { useState } from 'react';
+
 
 
 export default function TextModal(props) {

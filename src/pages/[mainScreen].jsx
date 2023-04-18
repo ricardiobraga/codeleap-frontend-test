@@ -2,7 +2,7 @@
 import styles from '@/src/styles/Home.module.css';
 
 
-import Signup from '@/src/components/signup';
+
 import MainScreen from '@/src/components/MainScreen';
 import Head from 'next/head';
 

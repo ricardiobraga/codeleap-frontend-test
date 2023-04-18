@@ -14,7 +14,7 @@ export default function ButtonComp(props){
             return styles.btnInactive
         }
         if(props.type === "red"){
-            return styles.btnRed
+            return styles.btnRed 
         }
         if(props.type === "white"){
             return styles.btnWhite

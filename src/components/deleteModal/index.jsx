@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toggleDeleteOff } from '@/src/actions/toggleModalButtonSlice';
 import ButtonComp from '../button';
 import { useRouter } from 'next/navigation';
-import { set } from 'nprogress';
 import { motion } from 'framer-motion';
 
 
@@ -22,7 +21,7 @@ export default function DeleteModal(props) {
     }
 
     async function handleDelete(getposts) {
-        console.log(toggleButton.id);
+        
 
             await fetch(`https://dev.codeleap.co.uk/careers/${toggleButton.id}/`, {
                 method: 'DELETE',
